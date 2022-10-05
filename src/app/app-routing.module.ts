@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [TeamGuard] },
   { path: 'gif', component: NiceGifComponent, canActivate: [TeamGuard] },
   { path: 'admin/panel', component: AdminPanelComponent, canActivate: [AdminGuard] },
-  { path: '',   redirectTo: '/auth/pass', pathMatch: 'full' },
+  { path: '',   redirectTo: '/code', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
