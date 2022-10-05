@@ -1,0 +1,27 @@
+<button (click)="logout()">Log out</button>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Code</td>
+    <td>Rename</td>
+    <td>New code</td>
+  </tr>
+  <tr *ngFor="let team of teams; index as i">
+    <td>{{team.name}}</td>
+    <td>{{team.code}}</td>
+    <td><button>/</button></td>
+    <td><button>*</button></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>#</td>
+    <td>Team name</td>
+    <td>Auth time</td>
+  </tr>
+  <tr *ngFor="let team of teamLogs; index as i ">
+    <td>{{i+1}}</td>
+    <td>{{team.teamDetails.name}}</td>
+    <td>{{team.createdDate | date:'YYYY/MM/dd HH:mm:ss.SSS'}}</td>
+  </tr>
+</table>

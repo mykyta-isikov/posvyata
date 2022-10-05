@@ -1,0 +1,12 @@
+<form [formGroup]="loginTeamForm">
+  <input type="text" placeholder="code" formControlName="code">
+  <select formControlName="id">
+    <option value="">Choose your group</option>
+    <ng-container *ngFor="let team of teams">
+      <option value="{{team._id}}">{{team.name}}</option>
+    </ng-container>
+  </select>
+  <!--  [disabled]="myForm.invalid || submitBtnDisabled"-->
+  <button (click)="loginTeam()" [disabled]="fetching">Submit</button>
+  <p [hidden]="this.errorMessage.length === 0">{{errorMessage}}</p>
+</form>

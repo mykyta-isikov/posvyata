@@ -1,0 +1,6 @@
+<form [formGroup]="adminLoginForm">
+  <input type="text" placeholder="username" formControlName="username">
+  <input type="password" placeholder="password" formControlName="password">
+  <button (click)="loginAdmin()" [disabled]="fetching">Submit</button>
+  <p class="error">{{errorMessage}}</p>
+</form>
