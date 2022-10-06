@@ -66,4 +66,18 @@ export class TeamRowComponent implements OnInit {
       }
     )
   }
+  deleteTeam() {
+    this.fetching = true;
+    this.teamsService.deleteTeam(this.team._id).subscribe(
+      (res) => {
+        this.dataUpdateEvent.next('');
+      },
+      (error) => {
+        console.log(error.message);
+      },
+      () => {
+        this.fetching = false;
+      }
+    )
+  }
 }

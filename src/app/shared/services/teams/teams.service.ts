@@ -57,6 +57,15 @@ export class TeamsService {
       );
   }
 
+  createTeam(name: string) {
+    let headers = new HttpHeaders();
+    // @ts-ignore
+    headers = headers.append('authorization', localStorage.getItem('authorization'))
+    return this.http
+      .post(environment.base_url + `teams/`, { name }, { headers })
+      .pipe(take(1));
+  }
+
   editName(input: EditNameInput) {
     let headers = new HttpHeaders();
     // @ts-ignore
@@ -72,6 +81,15 @@ export class TeamsService {
     headers = headers.append('authorization', localStorage.getItem('authorization'))
     return this.http
       .patch(environment.base_url + `teams/${id}/code`, { }, { headers })
+      .pipe(take(1));
+  }
+
+  deleteTeam(id: string) {
+    let headers = new HttpHeaders();
+    // @ts-ignore
+    headers = headers.append('authorization', localStorage.getItem('authorization'))
+    return this.http
+      .delete(environment.base_url + `teams/${id}`, { headers })
       .pipe(take(1));
   }
 }

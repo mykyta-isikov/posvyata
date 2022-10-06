@@ -1,9 +1,12 @@
 <div class="row mt-3 justify-content-center">
-  <div class="col-10 col-lg-7">
+  <div class="col-12 col-md-6">
     <h2>Teams</h2>
   </div>
-  <div class="col-2 col-lg-1 d-flex justify-content-end">
-    <button class="btn btn-primary">Add</button>
+  <div class="col-12 col-md-6 d-flex justify-content-end">
+    <form [formGroup]="createTeamForm">
+      <input type="text" formControlName="name" placeholder="new team's name">
+    </form>
+    <button (click)="createTeam()" [disabled]="fetching || createTeamForm.invalid" class="btn btn-primary py-1 px-3">Add</button>
   </div>
 </div>
 <div class="row mb-3 justify-content-center">
@@ -15,6 +18,7 @@
         <th scope="col">Code</th>
         <th scope="col">Rename</th>
         <th scope="col">New code</th>
+        <th scope="col">Delete</th>
       </tr>
       </thead>
       <tbody>
