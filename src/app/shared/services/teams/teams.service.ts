@@ -32,9 +32,13 @@ export class TeamsService {
       .get<TeamLogsResponse>(environment.base_url + 'teams/logs')
       .pipe(
         map(res => {
+          const _teamIds: string[] = [];
           const logs = [];
           for (let log of res.teamLoginLogs) {
-            logs.push(log);
+            if (_teamIds.indexOf(log.teamDetails._id) === -1) {
+              logs.push(log);
+              _teamIds.push(log.teamDetails._id);
+            }
           }
           return logs;
         }),
