@@ -4,6 +4,7 @@ import TeamLogs from "../../interfaces/TeamLogs";
 import {environment} from "../../../../environments/environment";
 import {map, take} from "rxjs";
 import Team from "../../interfaces/Team";
+import RefinedTeamLogs from "../../interfaces/RefinedTeamLogs";
 
 interface TeamLogsResponse {
   teamLoginLogs: TeamLogs[]
@@ -33,14 +34,19 @@ export class TeamsService {
       .pipe(
         map(res => {
           const _teamIds: string[] = [];
-          const logs = [];
+          const result: RefinedTeamLogs[] = [];
           for (let log of res.teamLoginLogs) {
             if (_teamIds.indexOf(log.teamDetails._id) === -1) {
-              logs.push(log);
+              result.push({
+                id: log.teamDetails._id,
+                name: log.teamDetails.name,
+                archived: log.teamDetails.archived,
+                createdDate: log.createdDate,
+              });
               _teamIds.push(log.teamDetails._id);
             }
           }
-          return logs;
+          return result;
         }),
         take(1)
       );

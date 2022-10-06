@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import TeamLogs from "../../../shared/interfaces/TeamLogs";
 import {TeamsService} from "../../../shared/services/teams/teams.service";
+import RefinedTeamLogs from "../../../shared/interfaces/RefinedTeamLogs";
 
 @Component({
   selector: 'app-teams-leaderboard',
@@ -8,7 +8,7 @@ import {TeamsService} from "../../../shared/services/teams/teams.service";
   styleUrls: ['./teams-leaderboard.component.css']
 })
 export class TeamsLeaderboardComponent implements OnInit {
-  teamLeaderboard: TeamLogs[] = [];
+  teamLeaderboard: RefinedTeamLogs[] = [];
   errorMessage: string = '';
   fetching: boolean = false;
 
