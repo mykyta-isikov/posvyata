@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../shared/services/auth/auth.service";
 import {GetTeamsService} from "./get-teams.service";
 import Team from "../../shared/interfaces/Team";
@@ -25,8 +25,13 @@ export class TeamLoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginTeamForm = this.fb.group({
-      code: '',
-      id: ''
+      code: new FormControl('', [
+        Validators.required,
+        Validators.minLength(1)
+      ]),
+      id: new FormControl('', [
+        Validators.required,
+      ]),
     });
 
     this.getTeamsService.fetch().subscribe(
