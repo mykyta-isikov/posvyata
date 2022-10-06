@@ -1,6 +1,9 @@
 <div class="row mt-3 justify-content-center">
   <div class="col-10 col-lg-7">
-    <h2>Teams' login log</h2>
+    <h2>
+      <button (click)="getTeamLogsData()" [disabled]="fetching" class="btn btn-outline-primary">Refresh</button>
+      Teams' login log
+    </h2>
   </div>
   <div class="col-2 col-lg-1 d-flex justify-content-end">
     <button (click)="clearTeamsLogs()" [disabled]="this.teamLeaderboard.length === 0" class="btn btn-outline-danger">Clear</button>
