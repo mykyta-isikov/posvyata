@@ -1,0 +1,30 @@
+<div class="row mt-3 justify-content-center">
+  <div class="col-10 col-lg-7">
+    <h2>Teams</h2>
+  </div>
+  <div class="col-2 col-lg-1 d-flex justify-content-end">
+    <button class="btn btn-primary">Add</button>
+  </div>
+</div>
+<div class="row mb-3 justify-content-center">
+  <div class="col col-12 col-lg-8">
+    <table class="table table-dark table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Code</th>
+        <th scope="col">Rename</th>
+        <th scope="col">New code</th>
+      </tr>
+      </thead>
+      <tbody>
+      <ng-container *ngFor="let team of teams; index as i">
+        <tr app-team-row [data]="team" (dataUpdateEvent)="getTeams()"></tr>
+      </ng-container>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-start">
+      <div class="alert alert-danger py-1 px-3" role="alert" [hidden]="errorMessage.length === 0">{{errorMessage}}</div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,88 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400&display=swap');
+
+:root {
+  --cosmos: #1b1b1b;
+  --cosmos-secondary: #272727;
+  --rad-green: #44d62c;
+  --rad-green-active: #128406;
+  --disabled-dark: #3f3f3f
+}
+
+
+body {
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.bg-cosmos {
+  background-color: var(--cosmos);
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.border-box {
+  box-sizing: border-box;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.inconsolata {
+  font-family: 'Inconsolata', monospace;
+}
+
+.rad-button {
+  padding: 0.3em 1em;
+  border: 3px solid var(--rad-green);
+  border-radius: 0;
+  background-color: var(--cosmos-secondary);
+  color: var(--rad-green);
+  transition: 500ms;
+}
+
+.rad-button:hover {
+  cursor: pointer;
+  background-color: var(--rad-green);
+  color: var(--cosmos);
+  transition: 0ms;
+}
+
+.rad-button:active {
+  background-color: var(--rad-green-active);
+  border: 3px solid var(--rad-green-active);
+  transition: 0ms;
+}
+
+.rad-button:disabled {
+  background-color: var(--disabled-dark);
+  border: 3px solid var(--disabled-dark);
+  color: var(--cosmos);
+}
+
+.rad-input {
+  padding: 0.3em;
+  border-top: none;
+  border-right: none;
+  border-bottom: 3px solid var(--rad-green);
+  border-left: none;
+  background-color: var(--cosmos-secondary);
+  color: white;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.rad-input:focus {
+  border-bottom: 3px solid var(--rad-green-active);
+  background-color: var(--cosmos);
+  transition: 200ms;
+}
+
+.rad-input:disabled {
+  padding-bottom: calc(0.3em + 3px);
+  border-bottom: none;
+  background-color: var(--disabled-dark);
+
+}

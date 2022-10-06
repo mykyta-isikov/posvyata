@@ -22,7 +22,6 @@ export class AdminPanelComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTeamLogsData();
-    this.getTeams();
   }
 
   logout() {
@@ -36,22 +35,6 @@ export class AdminPanelComponent implements OnInit {
         this.teamLogs = teamLogs;
       },
       (error) => {
-        this.errorMessage = error.message;
-      },
-      () => {
-        this.fetching = false;
-      }
-    );
-  }
-
-  getTeams() {
-    this.fetching = true;
-    this.teamsService.getTeams().subscribe(
-      (teams) => {
-        this.teams = teams;
-      },
-      (error) => {
-        console.log(error)
         this.errorMessage = error.message;
       },
       () => {

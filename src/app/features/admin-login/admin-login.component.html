@@ -1,6 +1,25 @@
-<form [formGroup]="adminLoginForm">
-  <input type="text" placeholder="username" formControlName="username">
-  <input type="password" placeholder="password" formControlName="password">
-  <button (click)="loginAdmin()" [disabled]="fetching">Submit</button>
-  <p class="error">{{errorMessage}}</p>
-</form>
+<div class="row inconsolata">
+  <form class="container" [formGroup]="adminLoginForm">
+    <div class="row justify-content-center my-3">
+      <div class="col-6 col-lg-4">
+        <input class="w-100 rad-input" type="text" placeholder="username" formControlName="username">
+      </div>
+    </div>
+    <div class="row justify-content-center my-3">
+      <div class="col-6 col-lg-4">
+        <input class="w-100 rad-input" type="password" placeholder="password" formControlName="password">
+      </div>
+    </div>
+    <div class="row justify-content-center my-3">
+      <div class="col-4 col-lg-2 d-flex justify-content-center">
+        <button class="rad-button" (click)="loginAdmin()" [disabled]="fetching">Submit</button>
+      </div>
+    </div>
+    <div class="row justify-content-center my-3">
+      <div class="col-6 col-lg-4 text-center">
+        <div [hidden]="this.errorMessage.length === 0" class="alert alert-danger p-1" role="alert">{{errorMessage}}</div>
+      </div>
+    </div>
+  </form>
+</div>
+

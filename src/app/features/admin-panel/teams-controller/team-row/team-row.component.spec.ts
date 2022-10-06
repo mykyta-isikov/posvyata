@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PassCodeAuthComponent } from './pass-code-auth.component';
+import { TeamRowComponent } from './team-row.component';
 
-describe('PassCodeAuthComponent', () => {
-  let component: PassCodeAuthComponent;
-  let fixture: ComponentFixture<PassCodeAuthComponent>;
+describe('TeamRowComponent', () => {
+  let component: TeamRowComponent;
+  let fixture: ComponentFixture<TeamRowComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PassCodeAuthComponent ]
+      declarations: [ TeamRowComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PassCodeAuthComponent);
+    fixture = TestBed.createComponent(TeamRowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

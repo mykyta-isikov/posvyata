@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import TeamLogs from "../../interfaces/TeamLogs";
 import {environment} from "../../../../environments/environment";
 import {map, take} from "rxjs";
@@ -11,6 +11,11 @@ interface TeamLogsResponse {
 
 interface TeamsResponse {
   teams: Team[]
+}
+
+interface EditNameInput {
+  id: string,
+  name: string
 }
 
 @Injectable({
@@ -50,5 +55,23 @@ export class TeamsService {
         }),
         take(1)
       );
+  }
+
+  editName(input: EditNameInput) {
+    let headers = new HttpHeaders();
+    // @ts-ignore
+    headers = headers.append('authorization', localStorage.getItem('authorization'))
+    return this.http
+      .put(environment.base_url + `teams/${input.id}/name`, { name: input.name }, { headers })
+      .pipe(take(1));
+  }
+
+  reassignCode(id: string) {
+    let headers = new HttpHeaders();
+    // @ts-ignore
+    headers = headers.append('authorization', localStorage.getItem('authorization'))
+    return this.http
+      .patch(environment.base_url + `teams/${id}/code`, { }, { headers })
+      .pipe(take(1));
   }
 }

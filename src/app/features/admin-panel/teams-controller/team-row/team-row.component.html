@@ -1,0 +1,13 @@
+<td class="w-50">
+  <span [hidden]="editingName">{{team.name}}</span>
+  <span [hidden]="!editingName">
+    <form class="d-inline" [formGroup]="editNameForm">
+      <input type="text" class="bg-dark text-light w-50 py-1 px-3 border-0" formControlName="name">
+      <button (click)="confirmNameEdit()" [disabled]="this.editNameForm.invalid" class="btn btn-outline-info py-1 px-3">Confirm</button>
+    </form>
+  </span>
+
+</td>
+<td>{{team.code}}</td>
+<td><button (click)="renameBtn()" [disabled]="fetching" class="btn btn-outline-success py-1 px-3">✏️</button></td>
+<td><button (click)="reassignCode()" [disabled]="fetching" class="btn btn-outline-warning py-1 px-3">🌟</button></td>

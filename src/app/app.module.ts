@@ -5,12 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import {ReactiveFormsModule} from "@angular/forms";
-import {PassCodeAuthModule} from "./features/pass-code-auth/pass-code-auth.module";
 import {DashboardModule} from "./features/dashboard/dashboard.module";
 import {NiceGifModule} from "./features/nice-gif/nice-gif.module";
 import { AdminPanelComponent } from './features/admin-panel/admin-panel.component';
 import {AdminLoginModule} from "./features/admin-login/admin-login.module";
 import { TeamLoginComponent } from './features/team-login/team-login.component';
+import {AdminPanelModule} from "./features/admin-panel/admin-panel.module";
 
 @NgModule({
   declarations: [
@@ -19,15 +19,15 @@ import { TeamLoginComponent } from './features/team-login/team-login.component';
     AdminPanelComponent,
     TeamLoginComponent,
   ],
-    imports: [
-      BrowserModule,
-      AppRoutingModule,
-      ReactiveFormsModule,
-      PassCodeAuthModule,
-      DashboardModule,
-      NiceGifModule,
-      AdminLoginModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    DashboardModule,
+    NiceGifModule,
+    AdminLoginModule,
+    AdminPanelModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

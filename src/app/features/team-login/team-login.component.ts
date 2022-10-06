@@ -43,7 +43,6 @@ export class TeamLoginComponent implements OnInit {
   }
 
   loginTeam() {
-    console.log(this.loginTeamForm.value);
     this.fetching = true;
     this.authService
       .loginTeam(this.loginTeamForm.value)
