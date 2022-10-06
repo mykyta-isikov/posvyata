@@ -19,7 +19,7 @@
       <tbody>
       <tr *ngFor="let team of teamLeaderboard; index as i ">
         <th scope="row">{{i+1}}</th>
-<!--        <td>{{team.teamDetails.name}}</td>-->
+        <td>{{team.teamDetails.name}}</td>
         <td>{{team.createdDate | date:'YYYY/MM/dd HH:mm:ss.SSS'}}</td>
       </tr>
       </tbody>
