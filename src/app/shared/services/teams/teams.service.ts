@@ -92,4 +92,13 @@ export class TeamsService {
       .delete(environment.base_url + `teams/${id}`, { headers })
       .pipe(take(1));
   }
+
+  clearTeamsLogs() {
+    let headers = new HttpHeaders();
+    // @ts-ignore
+    headers = headers.append('authorization', localStorage.getItem('authorization'))
+    return this.http
+      .delete(environment.base_url + `teams/logs`, { headers })
+      .pipe(take(1));
+  }
 }

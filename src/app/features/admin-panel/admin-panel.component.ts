@@ -17,30 +17,13 @@ export class AdminPanelComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private teamsService: TeamsService
   ) { }
 
   ngOnInit(): void {
-    this.getTeamLogsData();
   }
 
   logout() {
     this.authService.deleteAuthToken();
-  }
-
-  getTeamLogsData() {
-    this.fetching = true;
-    this.teamsService.getTeamLogs().subscribe(
-      (teamLogs) => {
-        this.teamLogs = teamLogs;
-      },
-      (error) => {
-        this.errorMessage = error.message;
-      },
-      () => {
-        this.fetching = false;
-      }
-    );
   }
 
 }
