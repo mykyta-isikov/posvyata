@@ -58,7 +58,7 @@ export class TeamLoginComponent implements OnInit {
             return;
           }
           this.authService.saveAuthToken(res.jwt_token);
-          this.router.navigate(['/gif']);
+          this.router.navigate(['/winner']);
         },
         (error) => {
           this.errorMessage = error.message;
